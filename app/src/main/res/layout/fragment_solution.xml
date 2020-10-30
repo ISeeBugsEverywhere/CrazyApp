@@ -10,106 +10,137 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
         android:text="Molinė masė [g/mol]"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="33dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/molarMassEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
         android:text="Koncentracija [M/mM]"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="81dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/molarsEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="81dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/molarMassEntry" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
         android:text="Kiekis [g/mg]"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="243dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroup" />
 
     <EditText
         android:id="@+id/pickedMassEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroup" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/solutionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Tirpiklio kiekis?"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="421dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroup2" />
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:id="@+id/rGroup"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="160dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/molarsEntry">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/mMButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/mM" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/MButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/M" />
     </RadioGroup>
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:id="@+id/rGroup2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="339dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickedMassEntry">
 
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="RadioButton" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="RadioButton" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/additivesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Priedų kiekis?"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="497dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solutionButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

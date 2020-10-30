@@ -21,4 +21,10 @@ public class SolutionFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_solution, container, false);
         return root;
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
+
+    }
 }
