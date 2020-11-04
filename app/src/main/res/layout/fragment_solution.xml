@@ -24,7 +24,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="numberDecimal"
+        android:text="1245"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +49,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="numberDecimal"
+        android:text="20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/molarMassEntry" />
@@ -71,7 +75,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="numberDecimal"
+        android:text="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/rGroup" />
@@ -102,6 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="true"
             android:gravity="center"
             android:text="@string/mM" />
 
@@ -129,6 +136,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="true"
             android:gravity="center"
             android:text="@string/mg" />
 

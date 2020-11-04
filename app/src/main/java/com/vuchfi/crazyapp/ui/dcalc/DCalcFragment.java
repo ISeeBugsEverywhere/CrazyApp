@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.vuchfi.crazyapp.R;
 
 public class DCalcFragment extends Fragment {
@@ -56,12 +57,7 @@ public class DCalcFragment extends Fragment {
         }
     };
 
-    private final View.OnClickListener quitButtonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            quitButtonFunction();
-        }
-    };
+
 
     private final View.OnClickListener dButtonClickListener = new View.OnClickListener() {
         @Override
@@ -102,8 +98,8 @@ public class DCalcFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         //get all controls:
         calcButton = view.findViewById(R.id.calc_button);
-        quitButton = view.findViewById(R.id.quit_button);
-        xField = view.findViewById(R.id.x_field);
+
+//        xField = view.findViewById(R.id.x_field);
         ugenField = view.findViewById(R.id.ugen_field);
         deltaTField = view.findViewById(R.id.delta_t_field);
         upeakField = view.findViewById(R.id.upeak_field);
@@ -116,7 +112,7 @@ public class DCalcFragment extends Fragment {
         dButton = view.findViewById(R.id.d_button);
         dField = view.findViewById(R.id.d_field);
         //listenerių priskyrimas:
-        quitButton.setOnClickListener(quitButtonClickListener);
+//        quitButton.setOnClickListener(quitButtonClickListener);
         calcButton.setOnClickListener(calcButtonClickListener);
         sButton.setOnClickListener(sButtonClickListener);
         dButton.setOnClickListener(dButtonClickListener);
@@ -130,7 +126,7 @@ public class DCalcFragment extends Fragment {
         {
 
 
-            xField.setText("Atsakymas :) μm");
+//            xField.setText("Atsakymas :) μm");
             Ugen = Double.parseDouble(ugenField.getText().toString());
             Upeak = Double.parseDouble(upeakField.getText().toString());
             Rapkr = Double.parseDouble(rField.getText().toString());
@@ -140,20 +136,17 @@ public class DCalcFragment extends Fragment {
             deltaT = Double.parseDouble(deltaTField.getText().toString());
             get_dmkm();
             String ss = "Atsakymas x μm";
-            xField.setText(ss.replace("x", String.valueOf(dmkm_)));
+//            xField.setText(ss.replace("x", String.valueOf(dmkm_)));
+            Snackbar.make(getView(), ss.replace("x", String.valueOf(dmkm_)), 2500).show();
         }
         catch (Exception ex)
         {
-            Toast.makeText(getActivity(), "Įvesta ne skaičiai?", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Įvesta nesąmonė?", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    private void quitButtonFunction()
-    {
-        Toast.makeText(getActivity(), "Išjungiama", Toast.LENGTH_SHORT).show();
-        getActivity().finishAndRemoveTask();
-    }
+
 
     private void get_dmkm ()
     {
