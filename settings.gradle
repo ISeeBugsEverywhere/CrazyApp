@@ -1,2 +1,2 @@
-include ':app'
+include ':AdditivesSolutionCalculator'
 rootProject.name = "CrazyApp"
