@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.vuchfi.crazyapp"
+        applicationId "com.vuchfi.eksimplecalculator"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1

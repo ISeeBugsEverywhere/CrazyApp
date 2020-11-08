@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CrazyApp</string>
+    <string name="app_name">AdditivesCalculator</string>
     <string name="title_home">DCalc</string>
     <string name="title_dashboard">Solutions</string>
     <string name="title_notifications">Others</string>
