@@ -156,6 +156,7 @@
         android:layout_marginTop="8dp"
         android:text="Priedų kiekis?"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/solutionButton"
         app:layout_constraintTop_toBottomOf="@+id/rGroup2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
