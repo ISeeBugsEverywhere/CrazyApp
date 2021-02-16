@@ -47,6 +47,12 @@ public class SolutionFragment extends Fragment {
     double LiTFSI = 0.275;
     double FK209 = 0.12;
 
+    String default_molar = "20.0";
+    String default_mol_mass = "1245.0";
+    String default_mass = "10.0";
+    String default_volume = "10.0";
+    String default_volume_dim = "μl";
+
     double solutionVolume = -1.0;
 
 
@@ -77,6 +83,19 @@ public class SolutionFragment extends Fragment {
             pickedMassEntry.setText("");
             pickedMassEntry.requestFocus();
             Selection.setSelection((Spannable) pickedMassEntry.getText(), pickedMassEntry.getText().length());
+            if (molarMassEntry.getText().toString().equals(""))
+            {
+                molarMassEntry.setText(default_mol_mass);
+            }
+            if (molarsEntry.getText().toString().equals(""))
+            {
+                molarsEntry.setText(default_molar);
+            }
+            if (pickedVolumeEntry.getText().toString().equals(""))
+            {
+                pickedVolumeEntry.setText(default_volume);
+                dimensionsSolutionEntry.setText(default_volume_dim);
+            }
         }
     };
 
@@ -99,6 +118,18 @@ public class SolutionFragment extends Fragment {
             pickedVolumeEntry.requestFocus();
             pickedVolumeEntry.setText("");
             Selection.setSelection((Spannable) pickedVolumeEntry.getText(), pickedVolumeEntry.getText().length());
+            if (molarMassEntry.getText().toString().equals(""))
+            {
+                molarMassEntry.setText(default_mol_mass);
+            }
+            if (molarsEntry.getText().toString().equals(""))
+            {
+                molarsEntry.setText(default_molar);
+            }
+            if (pickedMassEntry.getText().toString().equals(""))
+            {
+                pickedMassEntry.setText(default_mass);
+            }
         }
     };
 
@@ -108,6 +139,19 @@ public class SolutionFragment extends Fragment {
             molarsEntry.setText("");
             molarsEntry.requestFocus();
             Selection.setSelection((Spannable) molarsEntry.getText(), molarsEntry.getText().length());
+            if (molarMassEntry.getText().toString().equals(""))
+            {
+                molarMassEntry.setText(default_mol_mass);
+            }
+            if (pickedVolumeEntry.getText().toString().equals(""))
+            {
+                pickedVolumeEntry.setText(default_volume);
+                dimensionsSolutionEntry.setText(default_volume_dim);
+            }
+            if (pickedMassEntry.getText().toString().equals(""))
+            {
+                pickedMassEntry.setText(default_mass);
+            }
         }
     };
 
@@ -117,6 +161,19 @@ public class SolutionFragment extends Fragment {
             molarMassEntry.setText("");
             molarMassEntry.requestFocus();
             Selection.setSelection((Spannable) molarMassEntry.getText(), molarMassEntry.getText().length());
+            if (pickedVolumeEntry.getText().toString().equals(""))
+            {
+                pickedVolumeEntry.setText(default_volume);
+                dimensionsSolutionEntry.setText(default_volume_dim);
+            }
+            if (molarsEntry.getText().toString().equals(""))
+            {
+                molarsEntry.setText(default_molar);
+            }
+            if (pickedMassEntry.getText().toString().equals(""))
+            {
+                pickedMassEntry.setText(default_mass);
+            }
         }
     };
 
