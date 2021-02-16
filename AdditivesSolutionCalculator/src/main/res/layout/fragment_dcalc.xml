@@ -38,7 +38,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:text="10"
+                android:text="1"
                 android:textAlignment="center" />
 
         </TableRow>
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:text="20"
+                android:text="10"
                 android:textAlignment="center" />
         </TableRow>
 
@@ -184,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:checked="true"
+                android:checked="false"
                 android:text="d [mm]"
                 android:textAlignment="center" />
 
@@ -209,6 +209,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:checked="true"
                 android:gravity="center"
                 android:text="@string/s_mm"
                 android:textAlignment="center" />
