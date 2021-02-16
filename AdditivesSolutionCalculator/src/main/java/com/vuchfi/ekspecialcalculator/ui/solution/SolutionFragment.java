@@ -1,10 +1,13 @@
 package com.vuchfi.ekspecialcalculator.ui.solution;
 
 import android.os.Bundle;
+import android.text.Selection;
+import android.text.Spannable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +31,12 @@ public class SolutionFragment extends Fragment {
     private RadioButton MButton; //molars
     private Button solutionButton;
     private Button additivesButton;
+    private TextView massTextView;
+    private TextView molarMassView;
+    private TextView concentrationView;
+    private TextView solutionField;
+    private TextView dimensionsSolutionEntry;
+    private TextView pickedVolumeEntry;
 
     double mmass = 0.0;
     double pmass = 0.0;
@@ -62,6 +71,55 @@ public class SolutionFragment extends Fragment {
         }
     };
 
+    private View.OnClickListener clearListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            pickedMassEntry.setText("");
+            pickedMassEntry.requestFocus();
+            Selection.setSelection((Spannable) pickedMassEntry.getText(), pickedMassEntry.getText().length());
+        }
+    };
+
+    private View.OnClickListener solutionFieldListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String txt = dimensionsSolutionEntry.getText().toString();
+            if (txt.equals("ml"))
+            {
+                dimensionsSolutionEntry.setText("μl");
+            }
+            else if (txt.equals("μl"))
+            {
+                dimensionsSolutionEntry.setText("ml");
+            }
+            else
+            {
+                dimensionsSolutionEntry.setText("μl");
+            }
+            pickedVolumeEntry.requestFocus();
+            pickedVolumeEntry.setText("");
+            Selection.setSelection((Spannable) pickedVolumeEntry.getText(), pickedVolumeEntry.getText().length());
+        }
+    };
+
+    private View.OnClickListener concentrationViewListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            molarsEntry.setText("");
+            molarsEntry.requestFocus();
+            Selection.setSelection((Spannable) molarsEntry.getText(), molarsEntry.getText().length());
+        }
+    };
+
+    private View.OnClickListener molarMassViewListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            molarMassEntry.setText("");
+            molarMassEntry.requestFocus();
+            Selection.setSelection((Spannable) molarMassEntry.getText(), molarMassEntry.getText().length());
+        }
+    };
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
@@ -74,9 +132,21 @@ public class SolutionFragment extends Fragment {
         MButton = view.findViewById(R.id.MButton);
         solutionButton = view.findViewById(R.id.solutionButton);
         additivesButton = view.findViewById(R.id.additivesButton);
+        massTextView = view.findViewById(R.id.massTextView);
+        molarMassView = view.findViewById(R.id.molarMassView);
+        concentrationView = view.findViewById(R.id.concentrationView);
+        solutionField = view.findViewById(R.id.solutionField);
+        dimensionsSolutionEntry = view.findViewById(R.id.dimensionsSolutionEntry);
+        pickedVolumeEntry = view.findViewById(R.id.pickedVolumeEntry);
         //listent'eriai
         solutionButton.setOnClickListener(solutionButtonListener);
         additivesButton.setOnClickListener(additivesButtonListener);
+        massTextView.setOnClickListener(clearListener);
+        //
+        molarMassView.setOnClickListener(molarMassViewListener);
+        concentrationView.setOnClickListener(concentrationViewListener);
+        solutionField.setOnClickListener(solutionFieldListener);
+
     }
 
     private void solutionFunction()
@@ -108,6 +178,8 @@ public class SolutionFragment extends Fragment {
             double microliters = milliliters*1000.0;
             solutionVolume = milliliters;
             Snackbar.make(getView(), String.valueOf(milliliters)+" ml,\narba "+String.valueOf(microliters)+" μl", 3000).show();
+            pickedVolumeEntry.setText(String.valueOf(microliters));
+            dimensionsSolutionEntry.setText("μl");
         }
         catch (Exception ex)
         {

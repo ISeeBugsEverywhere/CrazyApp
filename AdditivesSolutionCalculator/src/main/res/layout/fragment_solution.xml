@@ -7,7 +7,7 @@
     tools:context=".ui.solution.SolutionFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/molarMassView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -21,18 +21,17 @@
         android:id="@+id/molarMassEntry"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberDecimal"
         android:text="1245"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/concentrationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -40,32 +39,31 @@
         android:text="Koncentracija [M/mM]"
         app:layout_constraintEnd_toStartOf="@+id/molarsEntry"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/molarMassView" />
 
     <EditText
         android:id="@+id/molarsEntry"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberDecimal"
         android:text="20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/molarMassEntry" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/massTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
         android:text="Kiekis [g/mg]"
         app:layout_constraintEnd_toStartOf="@+id/pickedMassEntry"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rGroup" />
 
@@ -73,13 +71,13 @@
         android:id="@+id/pickedMassEntry"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberDecimal"
         android:text="10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/rGroup" />
 
     <Button
@@ -160,11 +158,11 @@
         app:layout_constraintTop_toBottomOf="@+id/rGroup2" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/solutionField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:text="Tirpiklis [ml/μl]"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rGroup2" />
@@ -173,17 +171,24 @@
         android:id="@+id/pickedVolumeEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:width="100dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/rGroup2"
         tools:text="0" />
+
+    <TextView
+        android:id="@+id/dimensionsSolutionEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="[?]"
+        app:layout_constraintEnd_toStartOf="@+id/pickedVolumeEntry"
+        app:layout_constraintStart_toEndOf="@+id/solutionField"
+        app:layout_constraintTop_toBottomOf="@+id/rGroup2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
