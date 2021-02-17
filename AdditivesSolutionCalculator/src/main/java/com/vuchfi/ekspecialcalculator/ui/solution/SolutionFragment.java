@@ -235,8 +235,15 @@ public class SolutionFragment extends Fragment {
             double microliters = milliliters*1000.0;
             solutionVolume = milliliters;
             Snackbar.make(getView(), String.valueOf(milliliters)+" ml,\narba "+String.valueOf(microliters)+" μl", 3000).show();
-            pickedVolumeEntry.setText(String.valueOf(microliters));
-            dimensionsSolutionEntry.setText("μl");
+            if (microliters < 1000.0) {
+                pickedVolumeEntry.setText(String.valueOf(microliters));
+                dimensionsSolutionEntry.setText("μl");
+            }
+            else
+            {
+                pickedVolumeEntry.setText(String.valueOf(milliliters));
+                dimensionsSolutionEntry.setText("ml");
+            }
         }
         catch (Exception ex)
         {
