@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,15 @@ import com.vuchfi.ekspecialcalculator.R;
 public class OthersFragment extends Fragment {
 
     private OthersViewModel othersViewModel;
+    //private members:
+    private TextView picked_mass;
+    private TextView molar_mass;
+    private TextView walls_volume;
+    private Button calculate_button;
+    private TextView answer_label;
+    private TextView area;
+    //
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -21,4 +32,47 @@ public class OthersFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_others, container, false);
         return root;
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
+        picked_mass = view.findViewById(R.id.picked_mass);
+        molar_mass = view.findViewById(R.id.molar_mass);
+        walls_volume = view.findViewById(R.id.waals_volume);
+        calculate_button = view.findViewById(R.id.calculate_button);
+        answer_label = view.findViewById(R.id.d_answer_text);
+        area = view.findViewById(R.id.area_box);
+//        listener'iai:
+        calculate_button.setOnClickListener(calculateListener);
+
+    }
+
+    private View.OnClickListener calculateListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            calclulate_fn();
+        };
+    };
+
+    private void calclulate_fn()
+    {
+        double m_p = 0.0;
+        double m_molar = 0.0;
+        double vol_walls = 0.0;
+        double S = 0.0;
+        m_p = Double.parseDouble(picked_mass.getText().toString());
+        m_molar = Double.parseDouble(molar_mass.getText().toString());
+        vol_walls = Double.parseDouble(walls_volume.getText().toString())*1e-30;//m^3
+        S = Double.parseDouble(area.getText().toString())*1e-4;//m^2 <-- cm^2 į metrus
+        double Na = 6.03e23;
+        double N_moles = m_p / m_molar * 1e-3; //moles
+        double N_molecules = N_moles * Na;
+        double volume = N_molecules * vol_walls; //volume in m^3;
+        double d = volume / S; //metrais
+        double dμm = Math.round((d/1e-6)*1e4)/1e4; //metrai į  μmetrus
+        answer_label.setText("d = "+String.valueOf(dμm)+" μm");
+
+    }
+
+
 }

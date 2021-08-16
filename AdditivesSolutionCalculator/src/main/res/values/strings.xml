@@ -11,4 +11,6 @@
     <string name="M">M</string>
     <string name="mg">mg</string>
     <string name="g">g</string>
+    <string name="A3">Van der Walls tūris [A<sup>3</sup>]</string>
+    <string name="Plotas">Plotas S [cm<sup>2</sup>]</string>
 </resources>
