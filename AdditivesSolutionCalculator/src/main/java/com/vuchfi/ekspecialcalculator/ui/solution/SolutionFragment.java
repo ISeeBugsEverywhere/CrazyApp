@@ -38,6 +38,8 @@ public class SolutionFragment extends Fragment {
     private TextView dimensionsSolutionEntry;
     private TextView pickedVolumeEntry;
 
+    private int mode = 0; // default mode is to calculate a volume of a solution.
+
     double mmass = 0.0;
     double pmass = 0.0;
     double molc = 0.0;
@@ -96,6 +98,7 @@ public class SolutionFragment extends Fragment {
                 pickedVolumeEntry.setText(default_volume);
                 dimensionsSolutionEntry.setText(default_volume_dim);
             }
+            mode = 2;
         }
     };
 
@@ -130,6 +133,7 @@ public class SolutionFragment extends Fragment {
             {
                 pickedMassEntry.setText(default_mass);
             }
+            mode = 0;
         }
     };
 
@@ -152,6 +156,7 @@ public class SolutionFragment extends Fragment {
             {
                 pickedMassEntry.setText(default_mass);
             }
+            mode = 1;
         }
     };
 
@@ -174,6 +179,7 @@ public class SolutionFragment extends Fragment {
             {
                 pickedMassEntry.setText(default_mass);
             }
+            mode = 3;
         }
     };
 
@@ -208,7 +214,87 @@ public class SolutionFragment extends Fragment {
 
     private void solutionFunction()
     {
+        if (mode == 0)
+        {
+            solution();
+        }
+        else if (mode == 1)
+        {
+            solution_II();
+        }
+        else if (mode == 2)
+        {
+            solution_III();
+        }
+    }
 
+    private void solution_II()
+    {
+//        molarsEntry skaičiuojamas
+        if (mMButton.isChecked()){
+            mM = 1e-3;
+        }
+        else if (MButton.isChecked())
+        {
+            mM = 1.0;
+        }
+        if (mgButton.isChecked())
+        {
+            mG = 1e-3;
+        }
+        else if (gButton.isChecked())
+        {
+            mG = 1.0;
+        }
+
+        try {
+            mmass = Double.parseDouble(molarMassEntry.getText().toString());
+            pmass = Double.parseDouble(pickedMassEntry.getText().toString());
+            double moles = (pmass*mG)/mmass; //an amount in moles
+            double solutionVolume = Double.parseDouble(pickedVolumeEntry.getText().toString());
+            if (dimensionsSolutionEntry.getText().toString().equals("μl"))
+            {
+                solutionVolume = solutionVolume * 1e-3; //in milliliters (μl -> ml)
+            }
+            double molars  = moles / solutionVolume; //in milliMolars!
+            molarsEntry.setText(String.valueOf(molars));
+
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(getActivity(), "PROBLEMOS: II()", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void solution_III()
+    {
+        if (mMButton.isChecked()){
+            mM = 1e-3;
+        }
+        else if (MButton.isChecked())
+        {
+            mM = 1.0;
+        }
+        if (mgButton.isChecked())
+        {
+            mG = 1e-3;
+        }
+        else if (gButton.isChecked())
+        {
+            mG = 1.0;
+        }
+        try {
+
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    private void solution()
+    {
         if (mMButton.isChecked()){
             mM = 1e-3;
         }
