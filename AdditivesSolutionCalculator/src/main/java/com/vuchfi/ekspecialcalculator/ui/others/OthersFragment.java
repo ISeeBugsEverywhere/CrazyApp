@@ -78,11 +78,13 @@ public class OthersFragment extends Fragment {
             else
             {
                 Toast.makeText(getActivity(), "ZERO in input?", Toast.LENGTH_SHORT).show();
+                answer_label.setText("d = x? μm");
             }
         }
         catch (Exception ex)
         {
             Toast.makeText(getActivity(), "ZERO in input?", Toast.LENGTH_SHORT).show();
+            answer_label.setText("d = x? μm");
         }
     }
 }
