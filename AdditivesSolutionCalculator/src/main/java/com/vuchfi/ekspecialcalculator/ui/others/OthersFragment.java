@@ -58,21 +58,27 @@ public class OthersFragment extends Fragment {
     private void calclulate_fn()
     {
         try {
-            double m_p = 0.0;
-            double m_molar = 0.0;
-            double vol_walls = 0.0;
-            double S = 0.0;
-            m_p = Double.parseDouble(picked_mass.getText().toString());
-            m_molar = Double.parseDouble(molar_mass.getText().toString());
-            vol_walls = Double.parseDouble(walls_volume.getText().toString()) * 1e-30;//m^3
-            S = Double.parseDouble(area.getText().toString()) * 1e-4;//m^2 <-- cm^2 į metrus
-            double Na = 6.03e23;
-            double N_moles = m_p / m_molar * 1e-3; //moles
-            double N_molecules = N_moles * Na;
-            double volume = N_molecules * vol_walls; //volume in m^3;
-            double d = volume / S; //metrais
-            double dum = Math.round((d / 1e-6) * 1e4) / 1e4; //metrai į  μmetrus
-            answer_label.setText("d = " + String.valueOf(dum) + " μm");
+//            double m_p = 0.0;
+//            double m_molar = 0.0;
+//            double vol_walls = 0.0;
+//            double S = 0.0;
+            double m_p = Double.parseDouble(picked_mass.getText().toString());
+            double m_molar = Double.parseDouble(molar_mass.getText().toString());
+            double vol_walls = Double.parseDouble(walls_volume.getText().toString()) * 1e-30;//m^3
+            double S = Double.parseDouble(area.getText().toString()) * 1e-4;//m^2 <-- cm^2 į metrus
+            if (S >= 1e-8 && m_p >= 1e-4 && m_molar >= 1e-3 && vol_walls >= 1e-30) {
+                double Na = 6.03e23;
+                double N_moles = m_p / m_molar * 1e-3; //moles
+                double N_molecules = N_moles * Na;
+                double volume = N_molecules * vol_walls; //volume in m^3;
+                double d = volume / S; //metrais
+                double dum = Math.round((d / 1e-6) * 1e4) / 1e4; //metrai į  μmetrus
+                answer_label.setText("d = " + String.valueOf(dum) + " μm");
+            }
+            else
+            {
+                Toast.makeText(getActivity(), "ZERO in input?", Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Exception ex)
         {

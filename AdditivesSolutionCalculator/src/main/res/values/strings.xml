@@ -2,7 +2,7 @@
     <string name="app_name">AdditivesCalculator</string>
     <string name="title_home">DCalc</string>
     <string name="title_dashboard">Solutions</string>
-    <string name="title_notifications">Others</string>
+    <string name="title_notifications">Thickness</string>
     <string name="u_gen">U<sub>gen.</sub>[V]</string>
     <string name="r_ap">R<sub>ap.</sub></string>
     <string name="u_0">U<sub>0</sub>[mV]</string>
